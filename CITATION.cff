@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you reference the AURUM architecture, cite this repository and clearly label its experimental status."
+title: "AURUM: Au Recovery Using Molecular secretomes"
+type: software
+authors:
+  - name: "Nine 1 Eight / 918 Technologies"
+version: 0.1.0
+date-released: 2026-08-16
+license: LicenseRef-Proprietary-918-Evaluation-1.0
+abstract: >-
+  A deterministic mass-balance model and research architecture for testing whether a cell-free
+  molecular product manufactured by urine-derived human cells can recover pre-existing ionic gold
+  from a physically separated process feed.
+keywords:
+  - gold recovery
+  - urine-derived cells
+  - secretome
+  - biomineralization
+  - biorefinery
+  - mass balance
+

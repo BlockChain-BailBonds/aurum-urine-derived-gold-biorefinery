@@ -1,0 +1,33 @@
+{
+  "name": "AURUM reference hypothesis — synthetic gold-bearing feed",
+  "evidence_status": "hypothesis",
+  "feed": {
+    "batch_volume_l": 100,
+    "gold_concentration_mg_l": 0.25,
+    "accessible_gold_fraction": 0.90
+  },
+  "secretome": {
+    "capture_phase_volume_l": 5,
+    "binding_capacity_mg_l": 4.5,
+    "active_fraction": 0.80,
+    "reuse_cycles": 3,
+    "per_reuse_capacity_retention": 0.90
+  },
+  "process": {
+    "affinity_capture_fraction": 0.85,
+    "reduction_yield_fraction": 0.92,
+    "harvest_yield_fraction": 0.95,
+    "refining_yield_fraction": 0.99,
+    "product_purity_fraction": 0.995,
+    "batches_per_day": 2,
+    "operating_days_per_year": 300,
+    "energy_kwh_per_batch": 1.5
+  },
+  "economics": {
+    "gold_price_usd_g": 75,
+    "electricity_price_usd_kwh": 0.12,
+    "consumables_usd_per_batch": 4.5,
+    "annual_fixed_cost_usd": 250
+  }
+}
+

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://918.technology/schemas/aurum/scenario.v1.json",
+  "title": "AURUM scenario v1",
+  "description": "Inputs for deterministic screening of gold recovery by a cell-free, urine-derived molecular secretome.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "evidence_status", "feed", "secretome", "process", "economics"],
+  "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "evidence_status": {
+      "enum": ["hypothesis", "bench-validated", "pilot-validated"]
+    },
+    "feed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["batch_volume_l", "gold_concentration_mg_l", "accessible_gold_fraction"],
+      "properties": {
+        "batch_volume_l": {"type": "number", "exclusiveMinimum": 0},
+        "gold_concentration_mg_l": {"type": "number", "minimum": 0},
+        "accessible_gold_fraction": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "secretome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capture_phase_volume_l",
+        "binding_capacity_mg_l",
+        "active_fraction",
+        "reuse_cycles",
+        "per_reuse_capacity_retention"
+      ],
+      "properties": {
+        "capture_phase_volume_l": {"type": "number", "exclusiveMinimum": 0},
+        "binding_capacity_mg_l": {"type": "number", "minimum": 0},
+        "active_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "reuse_cycles": {"type": "integer", "minimum": 1},
+        "per_reuse_capacity_retention": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "process": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "affinity_capture_fraction",
+        "reduction_yield_fraction",
+        "harvest_yield_fraction",
+        "refining_yield_fraction",
+        "product_purity_fraction",
+        "batches_per_day",
+        "operating_days_per_year",
+        "energy_kwh_per_batch"
+      ],
+      "properties": {
+        "affinity_capture_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "reduction_yield_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "harvest_yield_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "refining_yield_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "product_purity_fraction": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "batches_per_day": {"type": "number", "exclusiveMinimum": 0},
+        "operating_days_per_year": {"type": "integer", "minimum": 1},
+        "energy_kwh_per_batch": {"type": "number", "minimum": 0}
+      }
+    },
+    "economics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gold_price_usd_g",
+        "electricity_price_usd_kwh",
+        "consumables_usd_per_batch",
+        "annual_fixed_cost_usd"
+      ],
+      "properties": {
+        "gold_price_usd_g": {"type": "number", "minimum": 0},
+        "electricity_price_usd_kwh": {"type": "number", "minimum": 0},
+        "consumables_usd_per_batch": {"type": "number", "minimum": 0},
+        "annual_fixed_cost_usd": {"type": "number", "minimum": 0}
+      }
+    }
+  }
+}
+
