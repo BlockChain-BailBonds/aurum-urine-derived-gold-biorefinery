@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aurum-biorefinery"
+version = "0.1.0"
+description = "Deterministic mass-balance and research framework for a urine-derived molecular-secretome gold recovery biorefinery."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "LicenseRef-Proprietary-918-Evaluation-1.0"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Nine 1 Eight / 918 Technologies" }
+]
+keywords = [
+  "biorefinery",
+  "biomineralization",
+  "gold-recovery",
+  "mass-balance",
+  "secretome",
+  "urine-derived-cells"
+]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13"
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2",
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.6"
+]
+
+[project.scripts]
+aurum = "aurum_biorefinery.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q --strict-config --strict-markers"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["aurum_biorefinery"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
